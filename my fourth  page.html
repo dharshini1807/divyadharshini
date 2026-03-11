@@ -1,0 +1,157 @@
+<DOCTYPE! html>
+<html>
+    <head>
+<title<Med time</title>
+</head>
+<p align ="right"><font size = 6px>
+<a href = "Routine Influencer.html">HOME PAGE </a></p></font>
+<p align ="right"><font size = 4px>
+<a href = "thankyou.html">Exit </a></p></font>
+
+<font size = 4px>
+<p><ul type = "sq"><i>The Med Time feature is designed to help users take their medicines on time without forgetting. This feature allows users to set a specific time for their medication, and it gives a notification at the scheduled time.
+
+Med Time is created to support a healthy routine by ensuring medicines are taken regularly and on time. It is especially useful for people who have a busy schedule or need timely reminders.
+
+This feature was developed as part of my project to understand how time-based reminders work in web applications. It makes the application more useful and user-friendly by providing timely alerts.</i></ul></p></font>
+<img src = "med.png" align = "right" height = 500 width = 500 >
+<img src = "med time.png" align = "right" height = 500 width = 500 >
+
+<p> <b><font size = 5px>
+Note your med timings and medicine to be taken properly!</b></p></font>
+<ol type = "1">
+<Li>list it out!!</Li>
+<li>mention the time</li>
+<li>get notifications</li>
+<li>get completed</li></ol>
+<Br><b><FONT SIZE = 4PX>"ALL TO GET PROPER HEALTH"<b></br></FONT>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #dbe7ff;
+        }
+
+        input {
+            padding: 6px;
+            width: 90%;
+        }
+
+        button {
+            padding: 7px 14px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .add-btn {
+            display: block;
+            margin: 20px auto;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+        }
+
+        .alarm-btn {
+            background-color: #ff5722;
+            color: white;
+        }
+
+        .alarm-btn:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Medicine  Reminder</h2>
+
+<button class="add-btn" onclick="addRow()">Add Medicine</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name of the Medicine</th>
+            <th>Time</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="medicineTable">
+        <!-- Rows added dynamically -->
+    </tbody>
+</table>
+
+<script>
+    function addRow() {
+        const table = document.getElementById("medicineTable");
+        const row = table.insertRow();
+
+        row.innerHTML = `
+            <td><input type="text" placeholder="Medicine name"></td>
+            <td><input type="time"></td>
+            <td>
+                <button class="alarm-btn" onclick="setAlarm(this)">
+                    Remind me
+                </button>
+            </td>
+        `;
+    }
+
+    function setAlarm(button) {
+        const row = button.parentElement.parentElement;
+        const medicineName = row.cells[0].querySelector("input").value;
+        const timeValue = row.cells[1].querySelector("input").value;
+
+        if (medicineName === "" || timeValue === "") {
+            alert("Please enter medicine name and time!");
+            return;
+        }
+
+        const now = new Date();
+        const alarmTime = new Date();
+
+        const [hours, minutes] = timeValue.split(":");
+        alarmTime.setHours(hours, minutes, 0, 0);
+
+        if (alarmTime <= now) {
+            alert("Please select a future time!");
+            return;
+        }
+
+        const timeDiff = alarmTime - now;
+
+        alert(`Alarm set for ${medicineName} at ${timeValue}`);
+
+        setTimeout(() => {
+            alert(`⏰ Time to take your medicine: ${medicineName}`);
+ row.remove();
+        }, timeDiff);
+    }
+</script>
+
+</body>
+</html>

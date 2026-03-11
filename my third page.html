@@ -1,0 +1,153 @@
+<DOCTYPE! html>
+<html>
+    <head>
+<title<Work schedule</title>
+<p align ="right"><font size = 6px>
+<a href = "Routine Influencer.html">HOME PAGE </a></p></font>
+<img src = "work.png" align = "right" height = 500 width = 500 >
+</head> 
+<h1> work schedule :</h1>
+<ul type = "sq"><i><font size = 4px>
+<li>Prioritize tasks – Do important things first.</li>
+<br>
+<li>Break tasks into smaller steps – Make big tasks manageable.</li></br>
+<br>
+<li>Delegate – Let others handle what they can.</li></br>
+<br>
+<li>Limit multitasking – Focus on one task at a time.</li></br>
+<br>
+<li>Set time limits – Work efficiently in short bursts.</li></br>
+<br>
+<li>Say no when needed – Avoid unnecessary tasks.</i></ul></li></br></font>
+<p> <b><font size = 5px>
+complete your work here!!!!</b></p></font>
+<font size = 4px >
+<Li>list out your tasks.</Li>
+<li>set the time limit.</li>
+<li>mention from and to of your task completion time.</li>
+<li>After completion of the task you can remove it by clicking completed. </li></font>
+<head>
+      <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Schedule here!!!</h2>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #e0e0e0;
+        }
+
+        input {
+            width: 90%;
+            padding: 5px;
+        }
+
+        button {
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        .add-btn {
+            margin: 20px auto;
+            display: block;
+            font-size: 16px;
+        }
+
+        .complete-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        .complete-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center;">Task List</h2>
+
+    <button class="add-btn" onclick="addRow()">Add Row</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="taskTable">
+            <!-- Rows will be added here -->
+        </tbody>
+    </table>
+
+    <script>
+        function addRow() {
+            const table = document.getElementById("taskTable");
+
+            const row = table.insertRow();
+
+            row.innerHTML = `
+                <td><input type="text" placeholder="Enter task"></td>
+                <td><input type="time"></td>
+                <td><input type="time"></td>
+                <td>
+                    <button class="complete-btn" onclick="deleteRow(this)">
+                        Completed
+                    </button>
+                </td>
+            `;
+        }
+
+        function deleteRow(button) {
+            const row = button.parentNode.parentNode;
+            row.remove();
+        }
+    </script>
+
+</body>
+</html>
+</body>
+</html>
+
